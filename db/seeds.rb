@@ -16,10 +16,10 @@ if true
 end
 
 puts "Creating Pokemon..."
-eevee = Pokemon.create!(name: 'Eevee', type1: 'Normal', image_url: 'url/to/eevee.png')
-vaporeon = Pokemon.create!(name: 'Vaporeon', type1: 'Water', image_url: 'url/to/vaporeon.png')
-jolteon = Pokemon.create!(name: 'Jolteon', type1: 'Electric', image_url: 'url/to/jolteon.png')
-flareon = Pokemon.create!(name: 'Flareon', type1: 'Fire', image_url: 'url/to/flareon.png')
+eevee = Pokemon.create!(name: 'Eevee', type1: 'Normal', image_url: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/133.png')
+vaporeon = Pokemon.create!(name: 'Vaporeon', type1: 'Water', image_url: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/134.png')
+jolteon = Pokemon.create!(name: 'Jolteon', type1: 'Electric', image_url: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/135.png')
+flareon = Pokemon.create!(name: 'Flareon', type1: 'Fire', image_url: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/136.png')
 # ... add other Gen 1 Pokemon as needed ...
 
 puts "Creating Evolutions..."
