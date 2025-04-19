@@ -14,3 +14,10 @@
 # ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym "RESTful"
 # end
+
+ActiveSupport::Inflector.inflections(:en) do |inflect|
+  # Tell Rails "pokemon" doesn't change form when plural
+  inflect.irregular "pokemon", "pokemon"
+  inflect.irregular "Pokemon", "Pokemon"
+  inflect.uncountable %w( pokemon Pokemon )
+end
