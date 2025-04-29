@@ -1,0 +1,314 @@
+/* Kid-friendly Pokédex CSS with focus on visual navigation */
+
+body {
+  font-family: "Comic Sans MS", "Rounded Mplus 1c", sans-serif;
+  background-color: #f0f8ff; /* Light blue background */
+  margin: 0;
+  padding: 0;
+}
+
+/* Main container */
+.pokedex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Title styling */
+.pokedex-title {
+  font-size: 2.5rem;
+  color: #ff5722;
+  text-shadow: 2px 2px 0 #ffeb3b;
+  margin-bottom: 20px;
+}
+
+/* Explorer layout with orbital design */
+.explorer-layout {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Focused Pokémon styling */
+.focused-pokemon {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+  border: 10px solid #ffeb3b;
+}
+
+.focused-pokemon:hover {
+  transform: scale(1.05);
+}
+
+.focused-pokemon-image {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+}
+
+.focused-pokemon-name {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+}
+
+/* Orbit container for related Pokémon */
+.related-pokemon-orbit {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  animation: rotate 120s linear infinite;
+}
+
+/* Pause orbit rotation when user hovers */
+.related-pokemon-orbit:hover {
+  animation-play-state: paused;
+}
+
+/* Common styling for related Pokémon items */
+.related-pokemon-item {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  border: 5px solid #4caf50;
+  overflow: hidden;
+}
+
+.related-pokemon-item:hover {
+  transform: scale(1.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  z-index: 20;
+}
+
+.related-pokemon-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+/* Positioning related Pokémon in a circle */
+.related-pokemon-item:nth-child(1) {
+  transform: translate(250px, 0);
+}
+.related-pokemon-item:nth-child(2) {
+  transform: translate(176px, 176px);
+}
+.related-pokemon-item:nth-child(3) {
+  transform: translate(0, 250px);
+}
+.related-pokemon-item:nth-child(4) {
+  transform: translate(-176px, 176px);
+}
+.related-pokemon-item:nth-child(5) {
+  transform: translate(-250px, 0);
+}
+.related-pokemon-item:nth-child(6) {
+  transform: translate(-176px, -176px);
+}
+.related-pokemon-item:nth-child(7) {
+  transform: translate(0, -250px);
+}
+.related-pokemon-item:nth-child(8) {
+  transform: translate(176px, -176px);
+}
+
+/* Additional hover effects for all items */
+.related-pokemon-item:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 20px rgba(255, 235, 59, 0.8);
+  z-index: 20;
+}
+
+/* Evolution items styling (can have different border color) */
+.evolution-item {
+  border-color: #ff9800;
+}
+
+/* Type-related items styling */
+.type-item {
+  border-color: #2196f3;
+}
+
+/* Back button styling */
+.back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #ff5722;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+  text-decoration: none;
+}
+
+.back-button:hover {
+  transform: scale(1.1);
+}
+
+.back-arrow {
+  width: 30px;
+  height: 30px;
+  border-left: 8px solid white;
+  border-bottom: 8px solid white;
+  transform: rotate(45deg);
+  margin-left: 10px;
+}
+
+/* Animation for orbit rotation */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .explorer-layout {
+    height: 500px;
+  }
+
+  .focused-pokemon {
+    width: 240px;
+    height: 240px;
+  }
+
+  .focused-pokemon-image {
+    width: 160px;
+    height: 160px;
+  }
+
+  .related-pokemon-orbit {
+    width: 480px;
+    height: 480px;
+  }
+
+  .related-pokemon-item {
+    width: 80px;
+    height: 80px;
+  }
+
+  .related-pokemon-image {
+    width: 60px;
+    height: 60px;
+  }
+
+  /* Adjust positions for smaller screens */
+  .related-pokemon-item:nth-child(1) {
+    transform: translate(200px, 0);
+  }
+  .related-pokemon-item:nth-child(2) {
+    transform: translate(141px, 141px);
+  }
+  .related-pokemon-item:nth-child(3) {
+    transform: translate(0, 200px);
+  }
+  .related-pokemon-item:nth-child(4) {
+    transform: translate(-141px, 141px);
+  }
+  .related-pokemon-item:nth-child(5) {
+    transform: translate(-200px, 0);
+  }
+  .related-pokemon-item:nth-child(6) {
+    transform: translate(-141px, -141px);
+  }
+  .related-pokemon-item:nth-child(7) {
+    transform: translate(0, -200px);
+  }
+  .related-pokemon-item:nth-child(8) {
+    transform: translate(141px, -141px);
+  }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+  .explorer-layout {
+    height: 400px;
+  }
+
+  .focused-pokemon {
+    width: 180px;
+    height: 180px;
+  }
+
+  .focused-pokemon-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .related-pokemon-orbit {
+    width: 360px;
+    height: 360px;
+  }
+
+  .related-pokemon-item {
+    width: 70px;
+    height: 70px;
+  }
+
+  .related-pokemon-image {
+    width: 50px;
+    height: 50px;
+  }
+
+  /* Adjust positions for very small screens */
+  .related-pokemon-item:nth-child(1) {
+    transform: translate(150px, 0);
+  }
+  .related-pokemon-item:nth-child(2) {
+    transform: translate(106px, 106px);
+  }
+  .related-pokemon-item:nth-child(3) {
+    transform: translate(0, 150px);
+  }
+  .related-pokemon-item:nth-child(4) {
+    transform: translate(-106px, 106px);
+  }
+  .related-pokemon-item:nth-child(5) {
+    transform: translate(-150px, 0);
+  }
+  .related-pokemon-item:nth-child(6) {
+    transform: translate(-106px, -106px);
+  }
+  .related-pokemon-item:nth-child(7) {
+    transform: translate(0, -150px);
+  }
+  .related-pokemon-item:nth-child(8) {
+    transform: translate(106px, -106px);
+  }
+}

@@ -1,0 +1,45 @@
+<h1>Pokemon Explorer</h1>
+<div class="explorer-layout">
+  <div class="evolves-from">
+    <h2>Evolves From:</h2>
+    <% if @evolution_from.present? %>
+      <%= link_to pokemon_path(@evolution_from) do %>
+        <%= image_tag @evolution_from.image_url, alt: @evolution_from.name, size: "80x80" %>
+      <% end %>
+    <% else %>
+      <p>None</p>
+    <% end %>
+  </div>
+
+  <div class="focused-pokemon">
+    <%= image_tag @pokemon.image_url, alt: @pokemon.name, size: "80x80" %>
+  </div>
+
+  <div class="related-types">
+    <h2>Same Type:</h2>
+    <% if @related_by_type.present? %>
+      <% @related_by_type.each do |related_type| %>
+        <%= link_to pokemon_path(related_type) do %>
+          <%= image_tag related_type.image_url, alt: related_type.name, size: "80x80" %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p>None</p>
+    <% end %>
+  </div>
+
+  <div class="evolves-to">
+    <h2>Evolves To:</h2>
+    <% if @evolutions_to.present? %>
+      <% @evolutions_to.each do |evo_to| %>
+        <%= link_to pokemon_path(evo_to) do %>
+          <%= image_tag evo_to.image_url, alt: evo_to.name, size: "80x80" %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p>None</p>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to 'Back to Menu', root_path %>

@@ -1,0 +1,171 @@
+/* Basic body styling (optional) */
+body {
+  font-family: sans-serif;
+  padding: 20px;
+  background-color: #f4f4f4; /* Light background */
+}
+
+h1,
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+/* --- Index Page Grid --- */
+.pokemon-grid {
+  display: flex; /* Use flexbox for wrapping grid */
+  flex-wrap: wrap;
+  gap: 20px; /* Space between items */
+  justify-content: center; /* Center items horizontally */
+  padding: 20px 0;
+}
+
+.pokemon-grid a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+  background-color: #fff; /* White background for each item */
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  width: 120px; /* Fixed width for grid items */
+  text-align: center;
+}
+
+.pokemon-grid img {
+  width: 96px; /* Standard Pokedex image size */
+  height: 96px;
+  object-fit: contain; /* Ensure image fits well */
+  margin-bottom: 10px;
+}
+
+.pokemon-grid span {
+  font-weight: bold;
+}
+
+.pokemon-grid a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Show Page Explorer Layout (Using CSS Grid) --- */
+.explorer-layout {
+  display: grid;
+  /* Define grid areas for layout */
+  grid-template-areas:
+    ".     evolve-from ."
+    "types-left focused types-right" /* Assigning types to left/right for simplicity */
+    ".     evolve-to   .";
+  grid-template-columns: 1fr auto 1fr; /* Columns: side space, main content, side space */
+  grid-template-rows: auto auto auto; /* Rows for sections */
+  gap: 30px; /* Gap between grid areas */
+  align-items: center; /* Vertically align items in their areas */
+  justify-items: center; /* Horizontally align items in their areas */
+  max-width: 800px; /* Limit overall width */
+  margin: 30px auto; /* Center the layout */
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Assign grid areas to the divs */
+.evolutions-from {
+  grid-area: evolve-from;
+}
+.focused-pokemon {
+  grid-area: focused;
+}
+.evolutions-to {
+  grid-area: evolve-to;
+}
+/* Split related types conceptually or use one area and flexbox */
+.related-types {
+  grid-area: types-left / span 3; /* Span across for now, use flex inside */
+}
+/* A more complex grid could put related types left/right */
+/* Example:
+.related-types-left { grid-area: types-left; }
+.related-types-right { grid-area: types-right; }
+*/
+
+/* Styling for the focused Pokemon */
+.focused-pokemon {
+  text-align: center;
+}
+
+.focused-pokemon-image {
+  max-width: 200px; /* Larger image for focused Pokemon */
+  height: auto;
+  display: block; /* Center image if needed */
+  margin: 0 auto;
+}
+
+/* Styling for neighbor sections */
+.evolutions-from,
+.evolutions-to,
+.related-types {
+  text-align: center;
+  padding: 10px;
+}
+
+.evolutions-from h2,
+.evolutions-to h2,
+.related-types h2 {
+  margin-bottom: 15px;
+  font-size: 1.1em;
+  color: #555;
+}
+
+/* Container for neighbor images within sections */
+.evolutions-from > div, /* Assuming a container div if needed */
+.evolutions-to > div,
+.related-types > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+/* Styling for neighbor Pokemon links/images */
+.evolutions-from a,
+.evolutions-to a,
+.related-types a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+  padding: 5px;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.evolutions-from a:hover,
+.evolutions-to a:hover,
+.related-types a:hover {
+  background-color: #eee;
+}
+
+.neighbor-pokemon {
+  width: 80px; /* Smaller images for neighbors */
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 5px;
+}
+
+.evolutions-from span,
+.evolutions-to span,
+.related-types span {
+  font-size: 0.9em;
+}
+
+/* Basic link styling */
+a {
+  color: #007bff; /* Standard link blue */
+}

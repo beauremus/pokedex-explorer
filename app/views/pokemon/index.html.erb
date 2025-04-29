@@ -1,0 +1,21 @@
+<div class="pokemon-grid">
+  <%= link_to pokemon_path(@pokemon), title: "Click to explore #{@pokemon.name}'s relationships" do %>
+    <h3><%= @pokemon.name %></h3>
+
+    <% if @pokemon.image_url.present? %>
+      <%= image_tag @pokemon.image_url, alt: "#{@pokemon.name} image", width: "150", height: "150", style: "margin-bottom: 10px; image-rendering: pixelated;" %>
+    <% else %>
+      <p>(No image available)</p>
+    <% end %>
+
+    <p>
+      Type: <%= @pokemon.type1 %>
+      <% if @pokemon.type2.present? %>
+        / <%= @pokemon.type2 %>
+      <% end %>
+    </p>
+
+    <p style="font-style: italic; font-size: 0.9em;">Click to explore!</p>
+
+  <% end %>
+</div>

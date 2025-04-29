@@ -1,0 +1,139 @@
+/* Basic body styling (optional) */
+body {
+  font-family: sans-serif;
+  background-color: #e0f7fa; /* Lighter, perhaps more kid-friendly blue */
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; /* Ensure background covers viewport */
+}
+
+/* Main container using Grid for vertical sections */
+.explorer-container {
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* Top, Main (flexible), Bottom */
+  grid-template-columns: 1fr; /* Single column layout */
+  min-height: 90vh; /* Use more vertical space */
+  padding: 20px;
+  box-sizing: border-box;
+  max-width: 900px; /* Control max width */
+  margin: 20px auto; /* Center horizontally */
+  gap: 15px; /* Space between rows */
+}
+
+/* --- Sections --- */
+
+/* Evolve From/To containers (Top/Bottom rows) */
+.evolve-from-container,
+.evolve-to-container {
+  display: flex;
+  justify-content: center; /* Center pokemon horizontally */
+  align-items: center;
+  flex-wrap: wrap; /* Allow wrapping if multiple evolutions */
+  gap: 15px; /* Space between evolution images */
+  min-height: 100px; /* Ensure some space even if empty */
+  padding: 10px;
+}
+
+/* Focus Area (Middle row) - Use Flexbox for horizontal layout */
+.focus-area {
+  display: flex;
+  align-items: center; /* Vertically align items */
+  justify-content: space-between; /* Space out left types, focus, right types */
+  gap: 15px; /* Space between the columns */
+  padding: 10px 0; /* Padding top/bottom */
+}
+
+/* Containers for Related Types within the focus area */
+.related-types-container {
+  display: flex;
+  flex-direction: column; /* Stack related types vertically */
+  align-items: center; /* Center types horizontally */
+  gap: 15px; /* Space between related type pokemon */
+  flex: 1; /* Allow type sections to take available space */
+  min-width: 100px; /* Ensure some minimum width */
+}
+
+.related-types-left {
+  justify-content: flex-start; /* Align items to the start (left) */
+}
+
+.related-types-right {
+  justify-content: flex-end; /* Align items to the end (right) */
+}
+
+/* Styling for the main focused Pokemon */
+.focus-pokemon {
+  text-align: center; /* Center potentially added name */
+  /* No flex needed if just image+optional span */
+}
+
+/* --- Pokemon Images & Links --- */
+
+/* General image styling */
+.pokemon-image {
+  display: block; /* Prevents extra space below image */
+  object-fit: contain; /* Keeps aspect ratio */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.6
+  ); /* Slightly transparent white background */
+  border-radius: 50%; /* Make images circular */
+  padding: 5px; /* Add slight padding inside the circle */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Sizes for Hierarchy */
+.pokemon-image.large {
+  width: clamp(
+    150px,
+    25vw,
+    250px
+  ); /* Responsive size: min, preferred (viewport width), max */
+  height: auto; /* Maintain aspect ratio */
+  cursor: default; /* Not clickable */
+}
+
+.pokemon-image.medium {
+  /* Related Types */
+  width: clamp(80px, 12vw, 120px);
+  height: auto;
+}
+
+.pokemon-image.small {
+  /* Evolutions From/To */
+  width: clamp(60px, 10vw, 100px);
+  height: auto;
+}
+
+/* Styling links in relationship sections */
+.relationship-section a {
+  display: block; /* Make the link area blocky */
+  padding: 5px; /* Add padding AROUND the image for easier clicking */
+  border-radius: 50%; /* Match image shape for hover */
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.relationship-section a:hover,
+.relationship-section a:focus {
+  /* Add focus style for accessibility/keyboard */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Highlight background on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  outline: none; /* Remove default focus outline if custom style is applied */
+}
+
+/* Optional: Style for name below focus pokemon if uncommented */
+.focus-pokemon .pokemon-name {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}

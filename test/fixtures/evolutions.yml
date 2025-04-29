@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  from_pokemon: one
+  to_pokemon: one
+  trigger_info: MyString
+
+two:
+  from_pokemon: two
+  to_pokemon: two
+  trigger_info: MyString
